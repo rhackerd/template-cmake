@@ -1,17 +1,21 @@
-file(GLOB_RECURSE core_sources CONFIGURE_DEPENDS
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
+# Collect source files
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+    "*.cpp"
+    "*.h"
 )
 
-add_library(core STATIC ${core_sources})
+# Create library
+add_library(${PROJECT_NAME} STATIC ${SOURCES})
+add_library(Nova::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
 
-target_include_directories(core PUBLIC
+# Include directory
+target_include_directories(${PROJECT_NAME} PUBLIC
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
 )
 
-# Link required libraries
-target_link_libraries(core
+# Link dependencies
+target_link_libraries(${PROJECT_NAME}
     PUBLIC
-        fmt::fmt        # String formatting
+        fmt::fmt
         Nova::Logger
 )

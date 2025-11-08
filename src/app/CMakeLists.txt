@@ -11,7 +11,7 @@ target_include_directories(app PRIVATE
 
 target_link_libraries(app
     PRIVATE
-        core
+        ${PROJECT_NAME}
         fmt
 )
 
