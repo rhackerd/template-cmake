@@ -15,4 +15,9 @@ class Core {
         void unload();
 };
 
+struct ModuleContext {
+    Nova::Logger logger = Nova::Logger("Module");
+    
+};
+
 #endif

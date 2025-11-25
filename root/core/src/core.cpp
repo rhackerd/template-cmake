@@ -1,4 +1,4 @@
-#include "include/core.h"
+#include "core.h"
 Core::Core(): _l("Cmake Template") {
 }
 
